@@ -1,0 +1,15 @@
+#div1{
+    color: blue;
+    font-size: 33px;
+    text-align: center;
+    line-height: 50px;
+}
+div{
+    color: red;
+}
+.cls1{
+    color: blueviolet;
+    font-size: 66px;
+    text-align: left;
+    line-height: 150px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8_扩展选择器</title>
+    <style>
+        *{
+            color: skyblue;/*选择所有元素：*/
+        }
+        div,p{
+            color: red;/*并集选择器：*/
+        }
+        div p{
+            color: green;/*子选择器：筛选选择器1元素下的选择器2元素*/
+        }
+        div>p{
+            color: salmon;/*父选择器：筛选选择器2的父元素选择器1*/
+        }
+        input[type='text']
+        {
+            border: 5px salmon solid;/* 属性选择器：选择元素名称，属性名=属性值的元素*/
+        }
+        a:visited{
+            color: blue;
+        }
+        a:start{
+            color: plum;
+        }
+        a:hover{
+            color: red;
+        }
+        a:link{
+            color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+
+<div>
+    <p>传智播客</p>
+</div>
+<p>黑马程序员</p>
+
+<div>aaa</div>
+
+<input type="text">
+<input type="password">
+
+
+<br> <br> <br>
+
+<a href="#">黑马程序员</a>
+
+
+</body>
+</html>
