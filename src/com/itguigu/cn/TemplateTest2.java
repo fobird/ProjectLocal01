@@ -19,6 +19,6 @@ public class TemplateTest2 {
 
     //修改 psvm->psvmm
     public static void main(String[] args) {
-
+        System.out.println("我已经变了");
     }
 }
