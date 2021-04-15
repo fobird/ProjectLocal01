@@ -15,6 +15,8 @@ import java.io.IOException;
 public class ServletDemo9 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("demo9被访问了99999999999999999999");
+        Object info = request.getAttribute("name");
+        System.out.println("info = " + info);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -17,7 +17,8 @@ public class ServletDemo8 extends HttpServlet {
         System.out.println("demo8被访问了88888888888888888888");
 /*      RequestDispatcher requestDispatcher = request.getRequestDispatcher("/servletDemo9");
         requestDispatcher.forward(request,response);*/
-        request.getRequestDispatcher("/servletDemo9").forward(request,response);
+        request.setAttribute("name", "msg");
+        request.getRequestDispatcher("/servletDemo9").forward(request, response);
         // 只能访问项目内资源
         // request.getRequestDispatcher("http://www.shuquge.com/txt/74138/13780575.html").forward(request,response);
 
