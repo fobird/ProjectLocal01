@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册验证码</title>
+
+    <script>
+        /*
+    分析：
+        点击超链接或者图片，需要换一张
+        1.给超链接和图片绑定单击事件
+
+        2.重新设置图片的src属性值
+
+ */
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+            btn.onclick = function () {
+                var pic = document.getElementById("pic");
+                var date = new Date().getTime();
+                pic.src = "/day15/checkCodeServlet?" + date;
+            }
+            var pic = document.getElementById("pic");
+            pic.onclick=function (ev) {
+                var date = new Date().getTime();
+                pic.src = "/day15/checkCodeServlet?" + date;
+            }
+
+        }
+    </script>
+</head>
+<body>
+<img id='pic' src="/day15/checkCodeServlet">
+<hr>
+<a id='btn' href="#">点我换一张</a>
+</body>
+</html>
