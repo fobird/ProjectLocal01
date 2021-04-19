@@ -29,7 +29,6 @@ import java.io.IOException;
  * @date 2021-04-12 17:51
  */
 @WebServlet(urlPatterns = "/demo")
-
 public class servletDemo implements Servlet {
 
     @Override

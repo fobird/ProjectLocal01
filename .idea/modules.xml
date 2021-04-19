@@ -6,6 +6,12 @@
       <module fileurl="file://$PROJECT_DIR$/Module01/Module01.iml" filepath="$PROJECT_DIR$/Module01/Module01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Project01.iml" filepath="$PROJECT_DIR$/Project01.iml" />
       <module fileurl="file://$PROJECT_DIR$/StaticWeb01/StaticWeb01.iml" filepath="$PROJECT_DIR$/StaticWeb01/StaticWeb01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day12_xml/day12_xml.iml" filepath="$PROJECT_DIR$/day12_xml/day12_xml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day13_servlet/day13_servlet.iml" filepath="$PROJECT_DIR$/day13_servlet/day13_servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day13_tomcat/day13_tomcat.iml" filepath="$PROJECT_DIR$/day13_tomcat/day13_tomcat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day14_request/day14_request.iml" filepath="$PROJECT_DIR$/day14_request/day14_request.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day15_response/day15_response.iml" filepath="$PROJECT_DIR$/day15_response/day15_response.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day16_cookie&amp;session/day16_cookie&amp;session.iml" filepath="$PROJECT_DIR$/day16_cookie&amp;session/day16_cookie&amp;session.iml" />
     </modules>
   </component>
 </project>
