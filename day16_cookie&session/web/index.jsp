@@ -7,10 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+</head>
+<body>
+<%
+    System.out.println("index.jsp被访问了");
+    int i = 5;
+%>
+
+<%! int i = 3;%>
+<h1>hi jsp~</h1>
+<%= i%>
+</body>
 </html>
