@@ -1,5 +1,6 @@
 package cn.itcast.cookie;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -32,7 +33,7 @@ import java.util.Date;
 @WebServlet("/ServletCookieTest")
 public class ServletCookieTest extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        ServletContext servletContext = this.getServletContext();
         response.setContentType("text/html;charset=utf-8");
         Cookie[] cookies = request.getCookies();
         boolean flag = false;
