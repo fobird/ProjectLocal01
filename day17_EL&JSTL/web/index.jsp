@@ -6,6 +6,7 @@
     <title>$Title$</title>
 </head>
 <body>
+<%@include file="top.jsp"%>
 <% ArrayList list = new ArrayList();%>
 <%out.print(3 / 0);%>
 $END$
