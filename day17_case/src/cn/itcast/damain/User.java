@@ -19,19 +19,28 @@ public class User {
     private String address;
     private String qq;
     private String email;
+    private String username;
+    private String password;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", age=" + age +
-                ", name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", address='" + address + '\'' +
-                ", qq='" + qq + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public User() {
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     public int getId() {
         return id;
@@ -87,5 +96,17 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public User(int id, int age, String name, String gender, String address, String qq, String email, String username, String password) {
+        this.id = id;
+        this.age = age;
+        this.name = name;
+        this.gender = gender;
+        this.address = address;
+        this.qq = qq;
+        this.email = email;
+        this.username = username;
+        this.password = password;
     }
 }
