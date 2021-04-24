@@ -33,6 +33,23 @@
                 location.href = "${pageContext.request.contextPath}/delUserServlet?id=" + id;
             }
         }
+
+        window.onload = function (ev) {
+            var deuBtn = document.getElementById("delSelectedUser");
+            deuBtn.onclick = function (ev1) {
+                if (confirm("批量删除需谨慎，您确定要批量删除选中用户信息吗？")) {
+                    document.getElementById("form").submit();
+                }
+            };
+            document.getElementById("firCb").onclick = function (ev1) {
+
+                var ids = document.getElementsByName("uid");
+                for (var i = 0; i < ids.length; i++) {
+                    ids[i].checked = this.checked;
+                }
+            }
+        }
+
     </script>
 </head>
 <body>
@@ -57,40 +74,44 @@
     </div>
     <div style="float: right">
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/add.jsp">添加联系人</a>
-        <a class="btn btn-primary" href="add.html">删除选中</a></div>
-    <table border="1" class="table table-bordered table-hover">
-        <tr class="success">
-            <th>编号</th>
-            <th>姓名</th>
-            <th>性别</th>
-            <th>年龄</th>
-            <th>籍贯</th>
-            <th>QQ</th>
-            <th>邮箱</th>
-            <th>操作</th>
-        </tr>
-        <c:forEach items="${requestScope.list}" var="user" varStatus="s">
-            <tr>
-                <td>${s.count}</td>
-                <td>${user.name}</td>
-                <td>${user.gender}</td>
-                <td>${user.age}</td>
-                <td>${user.address}</td>
-                <td>${user.qq}</td>
-                <td>${user.email}</td>
-                <td><a class="btn btn-default btn-sm"
-                       href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">修改</a>
-                    &nbsp;<a class=" btn btn-default btn-sm" href="javascript:delUser(${user.id});">删除</a></td>
+        <a class="btn btn-primary" href="javascript:void(0);" id="delSelectedUser">删除选中</a></div>
+    <form id="form" action="${pageContext.request.contextPath}/delSelectedServlet" method="post">
+        <table border="1" class="table table-bordered table-hover">
+            <tr class="success">
+                <th><input type="checkbox" name="firCb" id="firCb"></th>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>籍贯</th>
+                <th>QQ</th>
+                <th>邮箱</th>
+                <th>操作</th>
             </tr>
+            <c:forEach items="${requestScope.list}" var="user" varStatus="s">
+                <tr>
+                    <td><input type="checkbox" name="uid" value="${user.id}"></td>
+                    <td>${s.count}</td>
+                    <td>${user.name}</td>
+                    <td>${user.gender}</td>
+                    <td>${user.age}</td>
+                    <td>${user.address}</td>
+                    <td>${user.qq}</td>
+                    <td>${user.email}</td>
+                    <td><a class="btn btn-default btn-sm"
+                           href="${pageContext.request.contextPath}/findUserServlet?id=${user.id}">修改</a>
+                        &nbsp;<a class=" btn btn-default btn-sm" href="javascript:delUser(${user.id});">删除</a></td>
+                </tr>
 
 
-        </c:forEach>
+            </c:forEach>
 
 
-        <%--        <tr>
-                    <td colspan="8" align="center"><a class="btn btn-primary" href="add.html">添加联系人</a></td>
-                </tr>--%>
-    </table>
+            <%--        <tr>
+                        <td colspan="8" align="center"><a class="btn btn-primary" href="add.html">添加联系人</a></td>
+                    </tr>--%>
+        </table>
+    </form>
     <div>
         <nav aria-label="Page navigation">
             <ul class="pagination">
