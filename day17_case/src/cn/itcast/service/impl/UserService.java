@@ -16,4 +16,9 @@ public class UserService implements cn.itcast.service.UserService {
     public List<User> findAll() {
         return userDao.findAll();
     }
+
+    @Override
+    public void addUser(User user) {
+        userDao.add(user);
+    }
 }

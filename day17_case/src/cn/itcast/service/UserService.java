@@ -12,4 +12,7 @@ import java.util.List;
 public interface UserService {
 
     public List<User> findAll();
+
+    void addUser(User user);
+
 }

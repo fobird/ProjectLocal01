@@ -20,4 +20,15 @@ public class UserDao implements cn.itcast.dao.UserDao {
         String sql = "select * from user";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<User>(User.class));
     }
+
+    @Override
+    public void add(User user) {
+        String sql = "insert into user values(null,?,?,?,?,?,?,null,null)";
+        jdbcTemplate.update(sql, user.getName(),
+                user.getGender(),
+                user.getAge(),
+                user.getAddress(),
+                user.getQq(),
+                user.getEmail());
+    }
 }
