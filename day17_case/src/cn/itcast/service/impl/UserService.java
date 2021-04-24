@@ -26,4 +26,15 @@ public class UserService implements cn.itcast.service.UserService {
     public void delUserById(String id) {
         userDao.delUserById(Integer.parseInt(id));
     }
+
+    @Override
+    public User findUserById(String id) {
+        return userDao.findUserById(Integer.parseInt(id));
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userDao.updateUser(user);
+
+    }
 }

@@ -12,20 +12,37 @@ import java.util.List;
 public interface UserDao {
     /**
      * 查询返回所有得用户信息
+     *
      * @return
      */
     public List<User> findAll();
 
     /**
      * 增加用户信息
+     *
      * @param user 根据前台传回信息构建得用户user
      */
     void add(User user);
 
     /**
      * 根據用戶id刪除數據庫裏用戶信息
+     *
      * @param id
      */
     void delUserById(int id);
+
+    /**
+     * 根據用戶id查询數據庫裏对应得用戶信息
+     *
+     * @param id
+     * @return
+     */
+    User findUserById(int id);
+
+    /**
+     * 修改用户信息
+     * @param user
+     */
+    void updateUser(User user);
 
 }

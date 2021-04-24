@@ -37,4 +37,21 @@ public class UserDao implements cn.itcast.dao.UserDao {
         String sql = "delete from user where id=?";
         jdbcTemplate.update(sql, id);
     }
+
+    @Override
+    public User findUserById(int id) {
+        String sql = "select * from user where id=?";
+        return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), id);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        String sql = "update user set name=?,gender=?,age=?,address=?,qq=?,email=? where id=? ";
+        jdbcTemplate.update(sql, user.getName(),
+                user.getGender(),
+                user.getAge(),
+                user.getAddress(),
+                user.getQq(),
+                user.getEmail(), user.getId());
+    }
 }

@@ -31,4 +31,18 @@ public interface UserService {
      * @param id
      */
     void delUserById(String id);
+
+    /**
+     * 根據用戶id查询數據庫裏对应得用戶信息
+     *
+     * @param id
+     * @return
+     */
+    User findUserById(String id);
+
+    /**
+     * 修改用户信息
+     * @param user 修改后的用戶信息
+     */
+    void updateUser(User user);
 }
