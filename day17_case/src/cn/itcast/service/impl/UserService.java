@@ -21,4 +21,9 @@ public class UserService implements cn.itcast.service.UserService {
     public void addUser(User user) {
         userDao.add(user);
     }
+
+    @Override
+    public void delUserById(String id) {
+        userDao.delUserById(Integer.parseInt(id));
+    }
 }

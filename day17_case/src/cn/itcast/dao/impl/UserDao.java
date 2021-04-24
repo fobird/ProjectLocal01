@@ -31,4 +31,10 @@ public class UserDao implements cn.itcast.dao.UserDao {
                 user.getQq(),
                 user.getEmail());
     }
+
+    @Override
+    public void delUserById(int id) {
+        String sql = "delete from user where id=?";
+        jdbcTemplate.update(sql, id);
+    }
 }

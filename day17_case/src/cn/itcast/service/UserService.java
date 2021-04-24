@@ -11,8 +11,24 @@ import java.util.List;
  */
 public interface UserService {
 
+    /**
+     * 查詢返回所有用户信息
+     *
+     * @return
+     */
     public List<User> findAll();
 
+    /**
+     * 增加用户信息
+     *
+     * @param user 根据前台传回信息构建得用户user
+     */
     void addUser(User user);
 
+    /**
+     * 根據用戶id刪除數據庫裏用戶信息
+     *
+     * @param id
+     */
+    void delUserById(String id);
 }
