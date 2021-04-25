@@ -54,4 +54,17 @@ public class UserDao implements cn.itcast.dao.UserDao {
                 user.getQq(),
                 user.getEmail(), user.getId());
     }
+
+    @Override
+    public int findTotalCount() {
+        String sql = "select count(*) from user";
+        return jdbcTemplate.queryForObject(sql, Integer.class);
+    }
+
+    @Override
+    public List<User> findUserPage(int start, int rows) {
+        String sql = "select * from user limit ?,?";
+        List<User> user = jdbcTemplate.query(sql, new BeanPropertyRowMapper<User>(User.class), start, rows);
+        return user;
+    }
 }

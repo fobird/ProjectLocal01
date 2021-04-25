@@ -45,4 +45,17 @@ public interface UserDao {
      */
     void updateUser(User user);
 
+    /**
+     * 計算数据库里用户总数
+     * @return
+     */
+    int findTotalCount();
+
+    /**
+     * 返回页面需要的user集合，List形式
+     * @param currentPage
+     * @param rows
+     * @return
+     */
+    List<User> findUserPage(int currentPage, int rows);
 }

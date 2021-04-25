@@ -1,5 +1,6 @@
 package cn.itcast.service;
 
+import cn.itcast.damain.PageBean;
 import cn.itcast.damain.User;
 
 import java.util.List;
@@ -52,4 +53,11 @@ public interface UserService {
      */
     void delUsers(String[] ids);
 
+    /**
+     * 返回page对象，实现分页功能
+     * @param currentPage 当前页码
+     * @param rows 每页展示行数
+     * @return
+     */
+    PageBean<User> findUserByPage(String currentPage, String rows);
 }
