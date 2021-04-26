@@ -4,6 +4,7 @@ import cn.itcast.damain.PageBean;
 import cn.itcast.damain.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author superLin
@@ -57,7 +58,8 @@ public interface UserService {
      * 返回page对象，实现分页功能
      * @param currentPage 当前页码
      * @param rows 每页展示行数
+     * @param map
      * @return
      */
-    PageBean<User> findUserByPage(String currentPage, String rows);
+    PageBean<User> findUserByPage(String currentPage, String rows, Map<String, String[]> map);
 }

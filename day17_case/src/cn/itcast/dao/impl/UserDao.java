@@ -5,7 +5,10 @@ import cn.itcast.utils.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author superLin
@@ -56,15 +59,46 @@ public class UserDao implements cn.itcast.dao.UserDao {
     }
 
     @Override
-    public int findTotalCount() {
-        String sql = "select count(*) from user";
-        return jdbcTemplate.queryForObject(sql, Integer.class);
+    public int findTotalCount(Map<String, String[]> map) {
+        String sql = "select count(*) from user where 1=1 ";
+        StringBuffer sb = new StringBuffer(sql);
+        Set<String> conditions = map.keySet();
+        List<Object> list = new ArrayList<Object>();
+        for (String key : conditions) {
+            if (key.equals("rows") || key.equals("currentPage")) {
+                continue;
+            }
+            String value = map.get(key)[0];
+            if (value != null && !"".equals(value)) {
+                sb.append(" and " + key + " like ?");
+                list.add("%" + value + "%");
+            }
+        }
+        sql = sb.toString();
+        return jdbcTemplate.queryForObject(sql, Integer.class, list.toArray());
     }
 
     @Override
-    public List<User> findUserPage(int start, int rows) {
-        String sql = "select * from user limit ?,?";
-        List<User> user = jdbcTemplate.query(sql, new BeanPropertyRowMapper<User>(User.class), start, rows);
+    public List<User> findUserPage(int start, int rows, Map<String, String[]> map) {
+        String sql = "select * from user where 1=1  ";
+        StringBuffer sb = new StringBuffer(sql);
+        Set<String> conditions = map.keySet();
+        List<Object> list = new ArrayList<Object>();
+        for (String key : conditions) {
+            if (key.equals("rows") || key.equals("currentPage")) {
+                continue;
+            }
+            String value = map.get(key)[0];
+            if (value != null && !"".equals(value)) {
+                sb.append(" and " + key + " like ?");
+                list.add("%" + value + "%");
+            }
+        }
+        sb.append(" limit ?,? ");
+        list.add(start);
+        list.add(rows);
+        sql = sb.toString();
+        List<User> user = jdbcTemplate.query(sql, new BeanPropertyRowMapper<User>(User.class), list.toArray());
         return user;
     }
 }

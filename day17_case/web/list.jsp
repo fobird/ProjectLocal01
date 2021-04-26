@@ -56,18 +56,20 @@
 <div class="container">
     <h3 style="text-align: center">用户信息列表</h3>
     <div style="float: left">
-        <form class="form-inline">
+        <form class="${pageContext.request.contextPath}/findUserPageServlet" method="post">
             <div class="form-group">
                 <label for="exampleInputName2">姓名</label>
-                <input type="text" class="form-control" id="exampleInputName2">
+                <input type="text" name="name" value="${conditions.name[0]}" class="form-control" id="exampleInputName2">
             </div>
             <div class="form-group">
                 <label for="exampleInputName3">籍貫</label>
-                <input type="text" class="form-control" id="exampleInputName3">
+                <input type="text" name="address" value="${conditions.address[0]}" class="form-control"
+                       id="exampleInputName3">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail2">邮箱</label>
-                <input type="email" class="form-control" id="exampleInputEmail2">
+                <input type="email" name="email" value="${conditions.email[0]}" class="form-control"
+                       id="exampleInputEmail2">
             </div>
             <button type="submit" class="btn btn-default">查询</button>
         </form>
@@ -107,9 +109,6 @@
             </c:forEach>
 
 
-            <%--        <tr>
-                        <td colspan="8" align="center"><a class="btn btn-primary" href="add.html">添加联系人</a></td>
-                    </tr>--%>
         </table>
     </form>
     <div>
@@ -144,7 +143,8 @@
                     <c:if test="${requestScope.pb.currentPage!=requestScope.pb.totalPage}">
                 <li>
                     </c:if>
-                    <a href="${pageContext.request.contextPath}/findUserPageServlet?rows=5&currentPage=${requestScope.pb.currentPage+1}" aria-label="Next">
+                    <a href="${pageContext.request.contextPath}/findUserPageServlet?rows=5&currentPage=${requestScope.pb.currentPage+1}"
+                       aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

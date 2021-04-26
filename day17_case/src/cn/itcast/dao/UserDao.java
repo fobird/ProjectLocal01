@@ -3,6 +3,7 @@ package cn.itcast.dao;
 import cn.itcast.damain.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author superLin
@@ -48,14 +49,16 @@ public interface UserDao {
     /**
      * 計算数据库里用户总数
      * @return
+     * @param map
      */
-    int findTotalCount();
+    int findTotalCount(Map<String, String[]> map);
 
     /**
      * 返回页面需要的user集合，List形式
      * @param currentPage
      * @param rows
+     * @param map
      * @return
      */
-    List<User> findUserPage(int currentPage, int rows);
+    List<User> findUserPage(int currentPage, int rows, Map<String, String[]> map);
 }

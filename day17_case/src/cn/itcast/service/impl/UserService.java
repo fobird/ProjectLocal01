@@ -5,6 +5,7 @@ import cn.itcast.damain.User;
 import cn.itcast.dao.UserDao;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author superLin
@@ -49,7 +50,7 @@ public class UserService implements cn.itcast.service.UserService {
     }
 
     @Override
-    public PageBean<User> findUserByPage(String _currentPage, String _rows) {
+    public PageBean<User> findUserByPage(String _currentPage, String _rows, Map<String, String[]> map) {
         //将_currentPage，_rows转成int型
         int currentPage = Integer.parseInt(_currentPage);
         int rows = Integer.parseInt(_rows);
@@ -63,17 +64,20 @@ public class UserService implements cn.itcast.service.UserService {
         pageBean.setCurrentPage(currentPage);
         pageBean.setRows(rows);
         //調用dao層方法，計算数据总数
-        int totalCount = userDao.findTotalCount();
+        int totalCount = userDao.findTotalCount(map);
         pageBean.setTotalCount(totalCount);
         //根据数据总数totalCount跟rows,计算totalPage
         int totalPage = (totalCount % rows) == 0 ? totalCount / rows : (totalCount / rows) + 1;
+        if (totalPage == 0) {
+            totalPage = 1;
+        }
         if (currentPage > totalPage) {
             currentPage = totalPage;
         }
         pageBean.setTotalPage(totalPage);
         //调用dao层方法，返回当前页面数据,list集合
         int start = (currentPage - 1) * rows;
-        List<User> list = userDao.findUserPage(start, rows);
+        List<User> list = userDao.findUserPage(start, rows, map);
         pageBean.setList(list);
         return pageBean;
     }
