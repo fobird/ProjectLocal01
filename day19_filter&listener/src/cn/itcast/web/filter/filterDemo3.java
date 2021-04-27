@@ -1,7 +1,6 @@
 package cn.itcast.web.filter;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 /**
@@ -10,7 +9,7 @@ import java.io.IOException;
  * filter快速入门
  * 访问所有资源之前，都会执行该过滤器
  */
-@WebFilter("/user/user.jsp")//单独访问某个资源
+//@WebFilter("/user/user.jsp")//单独访问某个资源
 public class filterDemo3 implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
