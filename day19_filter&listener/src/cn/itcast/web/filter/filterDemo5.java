@@ -1,7 +1,6 @@
 package cn.itcast.web.filter;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 /**
@@ -16,7 +15,7 @@ import java.io.IOException;
 //只有转发访问index.jsp时，该过滤器才会被执行
 //@WebFilter(value = "/index.jsp", dispatcherTypes = DispatcherType.FORWARD)
 //浏览器直接请求index.jsp或者转发访问index.jsp。该过滤器才会被执行
-@WebFilter(value = "/index.jsp", dispatcherTypes = {DispatcherType.FORWARD, DispatcherType.REQUEST})
+//@WebFilter(value = "/index.jsp", dispatcherTypes = {DispatcherType.FORWARD, DispatcherType.REQUEST})
 public class filterDemo5 implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
