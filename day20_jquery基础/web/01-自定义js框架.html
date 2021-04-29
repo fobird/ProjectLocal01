@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-自定义js框架</title>
+    <script src="js/itcast.js"></script>
+</head>
+<body>
+<div id="div1">div1....</div>
+<div id="div2">div2....</div>
+<script>
+    var div1 = document.getElementById("div1");
+    //alert(div1.innerHTML);
+    var div2 = document.getElementById("div2");
+    //  alert(div2.innerHTML);
+
+    //var div3 = fun("div1");
+    //alert(div3.innerText);
+
+    var div4 = $("div1");
+    alert(div4.innerText);
+    /*    function fun(id) {
+            var div = document.getElementById(id);
+            return div;
+        }*/
+</script>
+</body>
+</html>
